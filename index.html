@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Luxe Studio | Hair, Nails &amp; Beauty in Nairobi</title>
+    <meta name="description" content="Luxe Studio: braids, haircuts, nails, facials and bridal makeup in Nairobi. Book online or order on WhatsApp. Use code LUXE10 for 10% off.">
+    <meta name="theme-color" content="#4b1f7a">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <!-- Social preview (WhatsApp, Facebook, X). Change the domain below to your real website address -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Luxe Studio | Hair, Nails &amp; Beauty in Nairobi">
+    <meta property="og:description" content="Book your appointment or order on WhatsApp. 10% off with code LUXE10.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&h=630&q=70">
+    <meta property="og:url" content="https://www.yourwebsite.co.ke/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="site-header"></div>
+
+    <!-- HERO: call-to-action above the fold -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <span class="badge">10% OFF with code LUXE10</span>
+                <h1>Look <em>stunning.</em><br>Feel unstoppable.</h1>
+                <p>Braids, cuts, nails, facials and bridal makeup by Nairobi's friendliest beauty team.</p>
+                <div class="hero-cta">
+                    <a class="btn" href="#book">Book Appointment</a>
+                    <a class="btn btn-wa" href="#services">Order on WhatsApp</a>
+                    <a class="btn btn-outline" href="tel:+254723567812">Call 0723 567 812</a>
+                </div>
+            </div>
+            <div class="hero-img"><img id="heroImg" alt="Stylist doing hair at Luxe Studio" width="900" height="675"></div>
+        </div>
+    </section>
+
+    <!-- JOKE -->
+    <div class="joke">
+        <div class="container">
+            <p><span id="jokeText"></span></p>
+            <button class="btn btn-sm btn-outline" id="jokeBtn" type="button">Tell me another</button>
+        </div>
+    </div>
+
+    <!-- SERVICES / PRODUCTS + WHATSAPP ORDER + COUPON -->
+    <section id="services">
+        <div class="container">
+            <p class="crumbs"><a href="#">Home</a> &rsaquo; Services</p>
+            <h2 class="section-title">Our Services &amp; Products</h2>
+            <p class="section-sub">Pick what you love, apply your coupon, and send your order on WhatsApp.</p>
+            <div class="grid" id="productGrid"></div>
+
+            <div class="order-box">
+                <h3>Your order</h3>
+                <div id="orderLines"></div>
+                <div class="coupon-row">
+                    <input id="couponIn" placeholder="Coupon code (try LUXE10)" maxlength="20" style="flex:1;min-width:160px">
+                    <button class="btn btn-sm" id="couponBtn" type="button">Apply</button>
+                </div>
+                <div id="couponMsg"></div>
+                <div class="totals" id="orderTotals"></div>
+                <a class="btn btn-wa" id="orderWA" target="_blank" rel="noopener" style="display:none">Order on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="team alt">
+        <div class="container">
+            <p class="crumbs"><a href="#">Home</a> &rsaquo; Team</p>
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-sub">Friendly, skilled and ready to look after you.</p>
+            <div class="grid" id="teamGrid"></div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+        <div class="container">
+            <p class="crumbs"><a href="#">Home</a> &rsaquo; Reviews</p>
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-sub">Real words from happy clients.</p>
+            <div class="grid" id="reviewList"></div>
+
+            <h3 class="section-title" style="margin-top:48px;font-size:1.5rem">Leave a Review</h3>
+            <form class="form-box" id="reviewForm" novalidate style="margin-top:24px">
+                <label for="rName">Your name</label>
+                <input id="rName" maxlength="40" placeholder="e.g. Jane W.">
+                <label for="rStars">Rating</label>
+                <select id="rStars">
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Good</option>
+                    <option value="3">3 - Okay</option>
+                    <option value="2">2 - Poor</option>
+                    <option value="1">1 - Bad</option>
+                </select>
+                <label for="rText">Your review</label>
+                <textarea id="rText" rows="4" maxlength="400" placeholder="Tell us about your visit..."></textarea>
+                <div class="hp" aria-hidden="true"><label for="rWebsite">Website</label><input id="rWebsite" tabindex="-1" autocomplete="off"></div>
+                <button class="btn" type="submit">Submit Review</button>
+                <p class="form-msg" id="revMsg" role="alert"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="book" class="alt">
+        <div class="container">
+            <p class="crumbs"><a href="#">Home</a> &rsaquo; Book</p>
+            <h2 class="section-title">Book Your Appointment</h2>
+            <p class="section-sub">Takes less than a minute. We will confirm on WhatsApp.</p>
+            <form class="form-box" id="bookForm" novalidate>
+                <div class="form-grid">
+                    <div><label for="bName">Full name</label><input id="bName" autocomplete="name" maxlength="60" placeholder="e.g. Jane Wanjiku"></div>
+                    <div><label for="bPhone">Phone</label><input id="bPhone" type="tel" autocomplete="tel" placeholder="0712345678"></div>
+                    <div><label for="bService">Service</label><select id="bService"><option value="">Choose a service</option></select></div>
+                    <div><label for="bStylist">Stylist (optional)</label><select id="bStylist"><option value="">Any stylist</option></select></div>
+                    <div><label for="bDate">Date</label><input id="bDate" type="date"></div>
+                    <div><label for="bTime">Time</label><input id="bTime" type="time" value="10:00"></div>
+                </div>
+                <label for="bNotes">Notes (optional)</label>
+                <textarea id="bNotes" rows="3" maxlength="300" placeholder="Anything we should know?"></textarea>
+                <!-- spam trap: real people never see or fill this -->
+                <div class="hp" aria-hidden="true"><label for="bWebsite">Website</label><input id="bWebsite" tabindex="-1" autocomplete="off"></div>
+                <button class="btn" type="submit">Book Now</button>
+                <p class="form-msg" id="bookMsg" role="alert"></p>
+            </form>
+
+            <!-- THANK YOU (shown after the form is sent) -->
+            <div class="form-box" id="thanks" style="display:none;text-align:center">
+                <h2 class="section-title" style="margin-bottom:0">Thank you!</h2>
+                <p class="section-sub">Your booking request is ready. <b>Tap the button below to send it to us on WhatsApp</b> and we will confirm your slot.</p>
+                <div id="bookingSummary" style="text-align:left;margin-bottom:16px"></div>
+                <a class="btn btn-wa" id="confirmWA" target="_blank" rel="noopener" href="#">Confirm on WhatsApp</a>
+                <button class="btn btn-outline" id="anotherBtn" type="button">Make another booking</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container prose">
+            <p class="crumbs"><a href="#">Home</a> &rsaquo; FAQ</p>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-sub">Quick answers before you visit.</p>
+
+            <details open>
+                <summary>How do I book an appointment?</summary>
+                <p>Use the booking form on this page, call 0723 567 812, or message us on WhatsApp. We will confirm your slot.</p>
+            </details>
+            <details>
+                <summary>How do I use a coupon code?</summary>
+                <p>Add your services to the order box, type the code (for example LUXE10) and press Apply. The discount shows before you send your order on WhatsApp.</p>
+            </details>
+            <details>
+                <summary>Can I cancel or change my booking?</summary>
+                <p>Yes. Please call or WhatsApp us at least 24 hours before your appointment.</p>
+            </details>
+            <details>
+                <summary>How can I pay?</summary>
+                <p>Please confirm payment options (cash, M-Pesa or card) with our team when booking.</p>
+            </details>
+            <details>
+                <summary>Do you do bridal and group bookings?</summary>
+                <p>Yes! Message us the date and number of people and we will prepare a package for you.</p>
+            </details>
+            <details>
+                <summary>How long does a braiding session take?</summary>
+                <p>It depends on the style and length. Most braids take between 3 and 6 hours. Tell us your style when booking.</p>
+            </details>
+            <details>
+                <summary>Who can I talk to if I have a problem?</summary>
+                <p>Call our manager Brian Otieno on 0745 678 901 or email luxestudio@gmail.com.</p>
+            </details>
+
+            <p style="text-align:center;margin-top:24px"><a class="btn" href="#book">Book Now</a></p>
+        </div>
+    </section>
+
+    <!-- LOCATION + CONTACT -->
+    <section id="location" class="alt">
+        <div class="container">
+            <p class="crumbs"><a href="#">Home</a> &rsaquo; Contact</p>
+            <h2 class="section-title">Find Us</h2>
+            <p class="section-sub">Come say hi, we would love to see you.</p>
+            <div class="loc-grid" id="contact">
+                <div>
+                    <ul class="info-list">
+                        <li><b>Address:</b> <span class="js-address"></span></li>
+                        <li><b>Hours:</b> <span class="js-hours"></span></li>
+                        <li><b>Phone:</b> <a href="tel:+254723567812">0723 567 812</a></li>
+                        <li><b>Email:</b> <a href="mailto:luxestudio@gmail.com">luxestudio@gmail.com</a></li>
+                    </ul>
+                    <p style="margin:16px 0 8px"><b>Customer support (direct):</b></p>
+                    <div class="hero-cta">
+                        <a class="btn btn-sm" href="tel:+254723567812">Call</a>
+                        <a class="btn btn-sm btn-wa" target="_blank" rel="noopener" href="https://wa.me/254723567812?text=Hello%20Luxe%20Studio">WhatsApp</a>
+                        <a class="btn btn-sm btn-outline" href="mailto:luxestudio@gmail.com">Email</a>
+                    </div>
+                    <p style="margin-top:16px"><a class="btn" id="dirBtn" target="_blank" rel="noopener" href="#">Get Directions</a></p>
+                </div>
+                <iframe id="mapFrame" class="map" title="Luxe Studio on Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+
+    <!-- PRIVACY POLICY (pop-up) -->
+    <dialog id="privacyModal">
+        <div class="modal-in">
+            <button class="modal-x" type="button" data-close aria-label="Close">&#10005;</button>
+            <div class="prose">
+                <h2 class="modal-title">Privacy Policy</h2>
+                <p>Last updated: November 2026</p>
+
+                <h3>What we collect</h3>
+                <p>When you book or contact us we collect your name, phone number, chosen service, date and any notes you give us. When you send us a WhatsApp message or email, we receive the details you include.</p>
+
+                <h3>How we use it</h3>
+                <ul>
+                    <li>To confirm and manage your appointments and orders.</li>
+                    <li>To answer your questions and give customer support.</li>
+                    <li>To improve our services.</li>
+                </ul>
+
+                <h3>Cookies and local storage</h3>
+                <p>We store small items in your browser, such as your light/dark choice, your cookie choice and reviews you submit on this device. You can decline cookies using the banner, or clear them in your browser settings.</p>
+
+                <h3>Sharing</h3>
+                <p>We do not sell your information. We only share it with the staff who serve you, or when the law requires it. WhatsApp and Google Maps are third-party services with their own privacy policies.</p>
+
+                <h3>Your rights</h3>
+                <p>Under the Kenya Data Protection Act, 2019 you may ask us to see, correct or delete the personal information we hold about you.</p>
+
+                <h3>Contact</h3>
+                <p>Email <a href="mailto:luxestudio@gmail.com">luxestudio@gmail.com</a> or call <a href="tel:+254723567812">0723 567 812</a>.</p>
+            </div>
+            <p style="text-align:center"><button class="btn btn-sm" type="button" data-close>Close</button></p>
+        </div>
+    </dialog>
+
+    <!-- TERMS & CONDITIONS (pop-up) -->
+    <dialog id="termsModal">
+        <div class="modal-in">
+            <button class="modal-x" type="button" data-close aria-label="Close">&#10005;</button>
+            <div class="prose">
+                <h2 class="modal-title">Terms &amp; Conditions</h2>
+                <p>Last updated: November 2026</p>
+
+                <h3>Bookings</h3>
+                <p>A booking request is confirmed only when our team replies to you. Please arrive on time. Late arrivals may be shortened or rescheduled.</p>
+
+                <h3>Cancellations</h3>
+                <p>Please cancel or change your booking at least 24 hours before your appointment by calling or messaging us.</p>
+
+                <h3>Prices and payment</h3>
+                <p>Prices are in Kenya shillings (KES) and may change. The final price is confirmed at the salon, depending on hair length, style and products used.</p>
+
+                <h3>Coupons and discounts</h3>
+                <p>One coupon per order. Coupons cannot be combined, have no cash value and may be changed or withdrawn at any time.</p>
+
+                <h3>Health and allergies</h3>
+                <p>Please tell us about allergies or skin and scalp conditions before any service.</p>
+
+                <h3>Reviews</h3>
+                <p>Reviews must be honest and respectful. We may remove content that is abusive or false.</p>
+
+                <h3>Contact</h3>
+                <p>Questions? Email <a href="mailto:luxestudio@gmail.com">luxestudio@gmail.com</a> or call <a href="tel:+254723567812">0723 567 812</a>.</p>
+            </div>
+            <p style="text-align:center"><button class="btn btn-sm" type="button" data-close>Close</button></p>
+        </div>
+    </dialog>
+
+</body>
+</html>
